@@ -14,9 +14,15 @@ const { UMI_ENV = 'dev' } = process.env;
  * @description 部署时的路径，如果部署在非根目录下，需要配置这个变量
  * @doc https://umijs.org/docs/api/config#publicpath
  */
-const PUBLIC_PATH: string = '/';
+const PUBLIC_PATH: string = '/data-platform/';
 
 export default defineConfig({
+  /**
+   * @name 基础路径配置
+   * @description 设置应用的基础路径，用于路由匹配
+   */
+  base: '/data-platform',
+  
   /**
    * @name 开启 hash 模式
    * @description 让 build 之后的产物包含 hash 后缀。通常用于增量发布和避免浏览器加载缓存。
@@ -24,6 +30,10 @@ export default defineConfig({
    */
   hash: true,
 
+  /**
+   * @name 公共路径配置
+   * @description 静态资源的公共路径，必须与 base 保持一致
+   */
   publicPath: PUBLIC_PATH,
 
   /**

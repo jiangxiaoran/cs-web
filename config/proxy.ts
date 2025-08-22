@@ -12,10 +12,10 @@
 export default {
   // 如果需要自定义本地开发服务器  请取消注释按需调整
   dev: {
-    // localhost:8000/api/** -> http://localhost:8081/api/**
+    // localhost:8000/api/** -> http://localhost:8099/api/**
     '/api/': {
       // 要代理的地址 - 指向真实的后端服务
-      target: 'http://localhost:8081',
+      target: 'http://localhost:8099',
       // 配置了这个可以从 http 代理到 https
       // 依赖 origin 的功能可能需要这个，比如 cookie
       changeOrigin: true,
@@ -26,15 +26,15 @@ export default {
    * @doc https://github.com/chimurai/http-proxy-middleware
    */
   test: {
-    // localhost:8000/api/** -> http://localhost:8081/api/**
+    // localhost:8000/api/** -> http://localhost:8099/api/**
     '/api/': {
-      target: 'http://localhost:8081',
+      target: 'http://localhost:8099',
       changeOrigin: true,
     },
   },
   pre: {
     '/api/': {
-      target: 'http://localhost:8081',
+      target: 'http://localhost:8099',
       changeOrigin: true,
     },
   },

@@ -69,7 +69,18 @@ const Login: React.FC = () => {
           setTimeout(() => {
             // 跳转到首页或指定页面
             const urlParams = new URL(window.location.href).searchParams;
-            const redirect = urlParams.get('redirect') || '/dashboard';
+            let redirect = urlParams.get('redirect') || '/dashboard';
+            
+            // 如果redirect已经包含/data-platform前缀，需要去除以避免重复
+            if (redirect.startsWith('/data-platform')) {
+              redirect = redirect.substring('/data-platform'.length) || '/dashboard';
+            }
+            
+            // 确保redirect以/开头
+            if (!redirect.startsWith('/')) {
+              redirect = '/' + redirect;
+            }
+            
             console.log('🔄 准备跳转到:', redirect);
             
             console.log('🚀 执行跳转...');

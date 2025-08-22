@@ -2,7 +2,10 @@ import axios from 'axios';
 
 // 创建axios实例
 const request = axios.create({
-  baseURL: '/api',
+  // 根据环境设置不同的baseURL
+  // 开发环境：使用代理 /api
+  // 生产环境：使用完整路径 /data-platform/api
+  baseURL: process.env.NODE_ENV === 'development' ? '/api' : '/data-platform/api',
   timeout: 10000,
 });
 
